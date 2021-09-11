@@ -2,6 +2,8 @@
 
 ## docker dynamodb local
 
+https://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingAndRunning.html
+
 stand up dynamodb-local 
 
 ```
@@ -18,7 +20,14 @@ set alias
 alias aws='docker run --rm -it -v ~/.aws:/root/.aws amazon/aws-cli'
 ```
 
-configure
+check if the alias is set up
+
+```
+aws --version
+aws-cli/2.2.37 Python/3.8.8 Linux/4.19.128-microsoft-standard docker/x86_64.amzn.2 prompt/off
+```
+
+create configure file
 
 ```
 $ aws configure
@@ -30,10 +39,6 @@ $ cat .aws/credentials
 [default]
 aws_access_key_id = dummy
 aws_secret_access_key = dummy
-```
-
-```
-aws --version
 ```
 
 ## operate dynamodb with aws cli
@@ -68,43 +73,6 @@ https://docs.aws.amazon.com/cli/latest/reference/dynamodb/scan.html
 aws dynamodb scan --endpoint-url http://host.docker.internal:8000 --table-name animals
 ```
 
-
-## node
-
-DynamoDB Client - AWS SDK for JavaScript v3
-
-https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/index.html
-
-install client-dynamodb
-
-```
-yarn add @aws-sdk/client-dynamodb
-```
-
-install uuid
-
-```
-npm install uuid
-```
-
-### insert
-
-```
-$ node insert-data.js
-result: {
-  '$metadata': {
-    httpStatusCode: 200,
-    requestId: 'c910a473-f2a4-41b2-8aab-5cdb6021d0ef',
-    extendedRequestId: undefined,
-    cfId: undefined,
-    attempts: 1,
-    totalRetryDelay: 0
-  },
-  Attributes: undefined,
-  ConsumedCapacity: undefined,
-  ItemCollectionMetrics: undefined
-}
-```
 
 ## NoSQL Workbench
 
