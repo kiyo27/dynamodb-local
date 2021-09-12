@@ -73,6 +73,12 @@ https://docs.aws.amazon.com/cli/latest/reference/dynamodb/scan.html
 aws dynamodb scan --endpoint-url http://host.docker.internal:8000 --table-name animals
 ```
 
+delete table
+https://docs.aws.amazon.com/cli/latest/reference/dynamodb/delete-table.html
+
+```
+aws dynamodb delete-table --endpoint-url http://host.docker.internal:8000 --table-name Employee
+```
 
 ## NoSQL Workbench
 
